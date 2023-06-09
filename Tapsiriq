@@ -25,5 +25,30 @@ delete from Students where st_name='Aylin';--adi Aylin olan setri silirik
 
 insert into Students(st_id, st_name, st_birthdate,st_category) values(125,'Aylin', to_date('16.09.2002','DD.MM.YYYY'),'C');--insert edirik, email null olur
 
+Select * from user_tables where table_name='STUDENTS';--Burda cedvelin butun strukturuna baxiriq
+
+Select * from students;--Butun melumatlari cixarir
+
+Select st_id,st_name from students;--Projection(Proyeksiya)-istedyimiz setrleri cixarir
+
+Select max(st_birthdate) from students;--en son tarixi verir
+
+Select count(*) from students;--butun setrleri sayir
+
+Select max(salary), department_id from employees group by department_id;--qruplasdiririq
+
+Select salary, department_id from employees order by department_id desc;--department_id-e gore boyukden-kiciye siralayiriq
+
+Select salary, department_id from employees order by 1;--Salary-e gore siralayiriq
+
+Select max(salary), department_id from employees group by department_id having max(salary)>2500;--Neticeni filtrleyirik
+
+Select salary, department_id from employees order by department_id asc fetch first  10 rows only;--Siradan ilk 10 deneni cixarir
+
+Select last_name, salary, department_id from employees where last_name like 'K%' or salary=2200;--Ikisinden biri true-dirse isleyir
+
+Select job_id from employees;
+
+Select job_id,last_name, salary, department_id from employees where job_id like 'AD\_%' escape '\';--Where ile filtrleyirik
 
 
