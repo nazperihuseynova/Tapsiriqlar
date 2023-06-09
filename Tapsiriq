@@ -1,0 +1,16 @@
+drop table students;--Once Students cedvelini silirik
+
+Create table Students(st_id number(7) constraint pk_st_id primary key,
+st_name varchar2(20),
+st_birthdate date
+);--Students cedvelini yaradiriq
+
+alter table Students
+add(st_category varchar2(20));--Cedvele yeni sutun elave edirik
+
+alter table Students
+add (st_email varchar2(20) check(st_email like '%@%'));--Email sutunu elave edirik
+
+insert into Students values(123,'Nazperi', to_date('13.07.2000','DD.MM.YYYY'),'A','nazperi@gmail.com');--insert edirik
+
+insert into Students values(123,'Gulay', to_date('15.08.2001','DD.MM.YYYY'),'B','gulay@gmail.com');--insert edirik
