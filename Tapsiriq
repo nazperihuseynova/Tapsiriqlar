@@ -13,4 +13,17 @@ add (st_email varchar2(20) check(st_email like '%@%'));--Email sutunu elave edir
 
 insert into Students values(123,'Nazperi', to_date('13.07.2000','DD.MM.YYYY'),'A','nazperi@gmail.com');--insert edirik
 
-insert into Students values(123,'Gulay', to_date('15.08.2001','DD.MM.YYYY'),'B','gulay@gmail.com');--insert edirik
+insert into Students values(124,'Gulay', to_date('15.08.2001','DD.MM.YYYY'),'B','gulay@gmail.com');--insert edirik
+
+update Students set st_name='Gunay' where st_id=124;--update edirik
+
+insert into Students values(125,'Aylin', to_date('16.09.2002','DD.MM.YYYY'),'C','aylin@gmail.com');--insert edirik
+
+commit;--yadda saxlayiriq
+
+delete from Students where st_name='Aylin';--adi Aylin olan setri silirik
+
+insert into Students(st_id, st_name, st_birthdate,st_category) values(125,'Aylin', to_date('16.09.2002','DD.MM.YYYY'),'C');--insert edirik, email null olur
+
+
+
