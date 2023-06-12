@@ -66,4 +66,12 @@ Select  max(salary) sal, department_id from Employees group by department_id hav
 
 Select  max(salary), department_id from Employees group by department_id order by max(salary) desc fetch first 5 rows only;--Qruplasdirib, boyukden kiciye siralanmisda ilk 5 setri cixaririq
 
+Select employee_id from Employees where employee_id between &s1 and &s2;--single ampersand(execute edende qiymetleri ozumuz yaziriq)
+
+Select employee_id from Employees where employee_id between &&s1 and &&s2;--double ampersand(execute edende qiymeti bir defe yaziriq, sistem yadda saxlayiriq)
+
+undefine s1;
+undefine s2;
+
+--Undefine etdikden sonra yeniden sorgunu isletsek, qiymet daxil ede bileceyik
 
