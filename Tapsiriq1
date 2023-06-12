@@ -1,0 +1,18 @@
+drop table customer;--Customer cedvelini silirik
+
+create table Customer(customer_id number(5) generated as identity,
+customer_name varchar2(20) not null,
+customer_lastname varchar2(20) not null,
+adress varchar(20),
+email varchar(20) unique,
+phone_number char(10) unique
+);--Customer cedevlini yaradiriq
+
+Alter table Customer
+rename column adress to customer_adress;--Sutun adini deyisirik
+
+Alter table Customer
+set unused column customer_adress;--customer_adress sutunu gorunmez olur
+
+Alter table Customer
+drop unused columns;--Unused olunmus column-lari silirik
