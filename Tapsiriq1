@@ -49,9 +49,7 @@ commit;
 
 Delete from Customer where customer_id=4;--Id-si 4 olan setri silirik
 commit;
-
 Select first_name, last_name, salary from Employees;--Select projection
-
 Select * from employees;
 
 Select last_name, first_name, salary, department_id from Employees where department_id=50 and salary=6500;--Filterleyirik
@@ -66,7 +64,7 @@ Select  max(salary) sal, department_id from Employees group by department_id hav
 
 Select  max(salary), department_id from Employees group by department_id order by max(salary) desc fetch first 5 rows only;--Qruplasdirib, boyukden kiciye siralanmisda ilk 5 setri cixaririq
 
-Select employee_id from Employees where employee_id between &s1 and &s2;--single ampersand(her defe execute edende qiymetleri ozumuz yaziriq)
+Select employee_id from Employees where employee_id between &s1 and &s2;--single ampersand(execute edende qiymetleri ozumuz yaziriq)
 
 Select employee_id from Employees where employee_id between &&s1 and &&s2;--double ampersand(execute edende qiymeti bir defe yaziriq, sistem yadda saxlayiriq)
 
@@ -75,4 +73,44 @@ undefine s2;
 
 --Undefine etdikden sonra yeniden sorgunu isletsek, qiymet daxil ede bileceyik
 
+Select * from employees;
 
+Select round(5.2) from dual;--Yuvarlaqlasdirir
+
+Select trunc(5.2) from dual;--Kesir
+
+Select upper(last_name),initcap(first_name), round(hire_date,'mon') from employees;--upper-boyuk herf, initcap-ilk herfi boyuk, round-aya gore yuvarlaqlasdirir
+
+Select concat(last_name||' ',first_name) from employees;--Birlesdiririk
+
+Select nvl(commission_pct,1) from employees;--nullari 1 edir
+
+Select nullif(5,4) from dual;--beraber deyilse birincini yazir, beraberdirse null yazir
+
+Select rtrim('Gulay***','*') from dual;--*-u sagdan kesir
+
+Select sysdate from dual;--hazirki tarixi cixarir
+
+Select months_between(to_date('05.06.2020','DD.MM.YYYY'),to_date('05.05.2020','DD.MM.YYYY')) from dual;--Birinciden ikincini cixiriq
+
+Select mod(5,2) from dual;--qaligi tapir
+
+Select power(2,3) from dual;--quvvete yukseltmir
+
+Select greatest(2,3) from dual;--boyuyu cixarir
+
+Select count(last_name), department_id from employees group by department_id;--her department-e gore adlari sayiriq
+
+Select count(commission_pct) from employees;--nullari saymir
+
+Select sum(salary) from employees ;
+
+Select min(salary) from employees group by department_id;--Her departmente gore min salary-ni tapiriq
+
+Select max(salary) from employees group by department_id;--Her departmente gore max salary-ni tapiriq
+
+Select trunc(avg(salary)) from employees group by department_id;--Her departmente gore ortalamani tapiriq ve natamam hisseni kesirik
+
+Select median(salary) from employees group by department_id;--Her departmente gore ortadaki salary-ni gosterir
+
+Select median(salary) from employees;--Ortadaki setri cixarir, 107 setir var deye siralamada 54-cu setre dusen salary-ni cixarir
