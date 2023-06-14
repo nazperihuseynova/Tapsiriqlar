@@ -1,0 +1,23 @@
+Select first_name, last_name from employees where department_id=50
+union--2 sorgudan gelen melumatlari birlesdirir ve dublikatlari silir
+Select first_name, last_name from employees where department_id=30;
+
+Select first_name, last_name from employees where department_id=50
+union all--2 sorgudan gelen melumatlari birlesdirir
+Select first_name, last_name from employees where department_id=30;
+
+Select first_name, last_name from employees where department_id=50
+intersect--2 sorgudan gelen melumatlarin kesismesini tapir ve dublikatlari silir
+Select first_name, last_name from employees where department_id=30;
+
+Select first_name, last_name from employees where department_id=50
+minus--1-ciden 2-cide olanlar varsa onlari yazmir
+Select first_name, last_name from employees where department_id=30;
+
+Select first_name, last_name from employees where department_id=50
+union--2 sorgudan gelen melumatlari birlesdirir ve dublikatlari silir
+Select first_name, last_name from employees where department_id=30 order by 2;--1-ci Selectin 2-ci sutununa gore siralayir.
+
+Select first_name, last_name from employees where department_id=50
+union--2 sorgudan gelen melumatlari birlesdirir ve dublikatlari silir
+Select first_name, last_name from employees where department_id=30 order by 3;--Error verecek, cunki 2-ci Selectin sutunlarina gore siralamaq olmaz
